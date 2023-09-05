@@ -20,6 +20,7 @@ def Phone_fade():
             if name_1 in line[0]:
                 result=' '.join(line)
                 print(result)
+                data.close()
                 return
         print("Такого человека нет")
     data.close()
@@ -34,11 +35,39 @@ def Phone_fade_2():
                 line_delete_1=line[0]
                 line[0]=input("Введите фамилию для изменения: ")
                 result=' '.join(line)
-                lines = data.readlines()
                 print(result)
                 data.write(str(result)+"\n")
+                data.close()
+                return 
+        print("Такого человека нет")
+    data.close()
+# Phone_fade_2()
+def Phone_fade_3():
+    name_1=input("Введите фамилию: ")
+    with open('number_phone.txt','r') as data:
+        for line in data:
+            line=line.split()
+            if name_1 in line[1]:
+                result=' '.join(line)
+                print(result)
                 data.close()
                 return
         print("Такого человека нет")
     data.close()
-# Phone_fade_2()
+# Phone_fade_3():
+def Phone_fade_4():
+    name_1=input("Введите фамилию: ")
+    with open('number_phone.txt','r+') as data:
+        for line in data:
+            line=line.split()
+            if name_1 in line[0]:
+                line_delete_1=line[0]
+                line[1]=input("Введите имя для изменения: ")
+                result=' '.join(line)
+                print(result)
+                data.write(str(result)+"\n")
+                data.close()
+                return 
+        print("Такого человека нет")
+    data.close()
+# Phone_fade_4():
