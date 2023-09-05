@@ -84,3 +84,24 @@ def Phone_fade_4():
         print("Такого человека нет")
     data.close()
 # Phone_fade_4()
+def Phone_fade_5():
+    name_1=input("Введите фамилию: ")
+    with open('number_phone.txt','r+') as data:
+        for line in data:
+            line=line.split()
+            if name_1 in line[0]:
+                result=" ".join(line)
+                line_delete_1=result
+                data.close()
+                with open ('number_phone.txt', 'r') as data:
+                    old_data = data.read()
+                    new_data = old_data.replace(line_delete_1," ")
+                data.close()
+                with open ('number_phone.txt', 'w') as data:
+                    data.write(new_data)
+                data.close()
+                print("Контакт удален")
+                return 
+        print("Такого человека нет")
+    data.close()
+# Phone_fade_5()
